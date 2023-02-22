@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.60860fc1.css",
+    "main.js": "/static/js/main.6c5b75ea.js",
+    "static/media/imagenCarousel2.jpg": "/static/media/imagenCarousel2.3aa0af8c8a5a52a10ddb.jpg",
+    "static/media/Hind-Regular.ttf": "/static/media/Hind-Regular.4d32dabf118c5c7e3f48.ttf",
+    "static/media/Hind-Bold.ttf": "/static/media/Hind-Bold.ba5def1986599e839e18.ttf",
+    "static/media/Hind-SemiBold.ttf": "/static/media/Hind-SemiBold.2f5c20688fcca64121a2.ttf",
+    "static/media/imagenCarousel1.jpg": "/static/media/imagenCarousel1.0c8db872f2f9fa8f5a8f.jpg",
+    "static/media/imagenCarousel3.jpg": "/static/media/imagenCarousel3.5a6febc68b39ccb2611c.jpg",
+    "index.html": "/index.html",
+    "main.60860fc1.css.map": "/static/css/main.60860fc1.css.map",
+    "main.6c5b75ea.js.map": "/static/js/main.6c5b75ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.60860fc1.css",
+    "static/js/main.6c5b75ea.js"
+  ]
+}
