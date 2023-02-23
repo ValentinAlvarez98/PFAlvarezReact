@@ -23,6 +23,12 @@ const Tema = createTheme({
       opacity: 0.93,
       textShadow: "0 1px 1px #00000",
     },
+    body2: {
+      fontSize: "0.85rem",
+      letterSpacing: "0.001rem",
+      opacity: 0.98,
+      textShadow: "0 1px 1px #00000",
+    },
   },
 });
 

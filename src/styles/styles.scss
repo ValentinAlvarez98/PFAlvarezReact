@@ -17,14 +17,11 @@ body {
     margin: 0;
 }
 
-.textoHeaderUno {
+.textoHeaderUno,
+.textoSecciones {
     font-family: 'HindBold' !important;
 }
 
-.container {
+.toolbar {
     padding: 0 !important;
-
-    .toolbar {
-        padding: 0 !important;
-    }
 }
