@@ -3,6 +3,8 @@ import Container from "@mui/material/Container";
 import AppBar from "@mui/material/AppBar";
 import CartWidget from "../CartWidget/CartWidget";
 import Box from "@mui/material/Box";
+import Menu from "../Menu/Menu.jsx";
+import { Toolbar } from "@mui/material";
 
 const NavBar = () => {
   return (
@@ -17,11 +19,15 @@ const NavBar = () => {
           <Box
             sx={{
               display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "0",
+              margin: "0",
             }}
           >
-            <CartWidget />
+            <Menu />
+            <Box>
+              <CartWidget />
+            </Box>
           </Box>
         </Container>
       </AppBar>
