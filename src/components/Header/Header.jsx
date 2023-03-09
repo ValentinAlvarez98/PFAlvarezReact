@@ -1,8 +1,7 @@
 import { ThemeProviderCustom } from "../../theme/Theme.jsx";
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
-import { BarraApp } from "../AppBar/AppBar.jsx";
-import NavBar from "../NavBar/NavBar.jsx";
+import NavBars from "../NavBars/NavBars.jsx";
 
 const Header = () => {
   return (
@@ -27,8 +26,7 @@ const Header = () => {
           LÍDER EN VENTA DE CELULARES Y ACCESORIOS EN URUGUAY.
         </Typography>
       </AppBar>
-      <BarraApp />
-      <NavBar />
+      <NavBars />
     </header>
   );
 };
