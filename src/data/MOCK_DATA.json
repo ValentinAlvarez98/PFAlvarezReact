@@ -1,0 +1,183 @@
+
+[  
+  {
+    "id": 1,
+    "name": "Samsung Galaxy S23 5G Lavanda 128GB Libre",
+    "description": "El Samsung Galaxy S23 llega con algunos cambios de diseño y upgrades incrementales sobre su predecesor. Con una pantalla Dynamic AMOLED 2X de 6.1 pulgadas con tasa de refresco de 120Hz, resolución FHD+ y vidrio Gorilla Glass Victus 2, el Galaxy S23 está potenciado por un procesador Snapdragon 8 Gen 2 for Galaxy, una variante del chip de Qualcomm que corre a 3.36GHz, junto con 8GB de RAM y 128GB de almacenamiento interno. La cámara triple posterior está integrada por un sensor principal de 50MP con OIS, un lente ultrawide de 12MP y una cámara telefoto de 10MP con zoom óptico 3x, mientras que la cámara selfie es de 12MP y cuenta con autofocus. La batería del Galaxy S23 tiene una capacidad de 3900 mAh y soporta carga rápida de 25W, compatible también con carga inalámbrica. El Galaxy S23 completa sus características con un lector de huellas bajo la pantalla, resistencia al polvo y agua de nivel IP68, tiene parlantes stereo y corre Android 13.",
+    "price": 1315,
+    "category": "celulares",
+    "section": "celulares",
+    "pictureUrl": "https://i.ibb.co/HGz1nPm/S23L128.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Xiaomi Redmi Note 11 Pro Negro 128GB Libre",
+    "description": "El Xiaomi Redmi Note 11 Pro llega con una pantalla AMOLED FHD+ de 6.67 pulgadas y tasa de refresco de 120Hz. Potenciado por un procesador MediaTek Helio G96, el Redmi Niote 11 Pro cuenta con 6GB de RAM y 128GB de almacenamiento interno. Su conjunto posterior de cámaras incluyen una cámara principal de 108MP secundada por cámaras ultrawide de 8MP, macro de 2MP y profundidad de 2MP, mientras que la cámara selfie es de 16MP. Con una batería de 5000 mAh de carga rápida de 67W, el Redmi Note 11 Pro completa sus características con parlantes stereo, lector de huellas lateral y MIUI 13 basado en Android 11.",
+    "price": 433,
+    "category": "celulares",
+    "section" : "celulares",
+    "pictureUrl": "https://i.ibb.co/vvnvr9X/XRN11-P128.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Apple iPhone 14 Plus Azul 256GB Libre",
+    "description": "Apple iPhone 14 Plus Azul 256GB Libre - iPhone 14 Plus - Celulares",
+    "price": 1822,
+    "category": "celulares",
+    "section": "celulares",
+    "pictureUrl": "https://i.ibb.co/gWKxsZK/IP14-PA256.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Honor X7A Plata 128GB Libre",
+    "description": "Honor ha decidido lanzar su nuevo smartphone de gama media, el Honor X7a, un equipo que viene repotenciado y llega con una pantalla LCD de 6.74 pulgadas de resolución HD con tasa de refresco de 90 Hz. Asimismo, el terminal viene con una memoria RAM de 6GB y con un almacenamiento interno de 128GB con la posibilidad de poder extenderse hasta 1TB. Cuenta con un procesador Mediatek Helio G37, Android 12 con la capa de personalización Magic UI 6.1, y una batería que tiene hasta 5330 mAh con carga de 22.5 w, además de reconocimiento facial. El Honor X7a viene con una cámara de 50 megapíxeles en la cámara principal, además de 5 megapíxeles el gran angular, 2 megapíxeles el de profundidad y 2 megapíxeles el lente macro, mientras que su cámara frontal será de 8 megapíxeles.",
+    "price": 332,
+    "category": "celulares",
+    "section" : "celulares",
+    "pictureUrl": "https://i.ibb.co/c6WKwc8/HNRX7-AP128.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Auriculares inalámbricos Lenovo LP80 color negro",
+    "description": "- El estuche de carga de 300 mAh puede cargar por completo 2 auriculares alrededor de 5 veces, ofrece más 24 horas de tiempo de música. - Con tecnología resistente al agua, ya no tendrás que preocuparte por salpicaduras o sudor. - Unidades de disco dual de 8 mm, disfruta de un sonido de música de graves profundos y fuertes 9D. - Función de control táctil y soporte para cambiar canciones, llamada telefónica y asistente de voz de llamada.",
+    "price": 49,
+    "category": "auriculares",
+    "section": "accesorios",
+    "pictureUrl": "https://i.ibb.co/DYQ9F7c/AILLP80N.jpg" 
+  },
+  {
+    "id": 6,
+    "name": "Auriculares inalámbricos Motorola Moto Buds 250 color negro",
+    "description": "Auténticos auriculares inalámbricos que le ofrecen el mejor valor para una combinación de sonido sobresaliente y duración de batería. Presentan en total 18 horas de reproducción con funda de carga inalámbrica, calidad de sonido superior y llamadas manos libres. Certificado de resistencia al agua IPX5 que también le permite moverse con libertad y comodidad sin preocuparse por dañarlos.",
+    "price": 92,
+    "category": "auriculares",
+    "section": "accesorios",
+    "pictureUrl":  "https://i.ibb.co/rHYsv6D/AIMMB250-N.jpg" 
+  },
+  {
+    "id": 7,
+    "name": "Auriculares inalámbricos TWS T11 color negro",
+    "description": "Especificaciones: - Modelo: TWS-T11 - Versión Bluetooth: 5.0 - Tiempo de reproduccion: 4-5 horas - Voltaje de funcionamiento: 3,15-4,2 V - Distancia bluetooth: 10 metros - Banda de frecuencia de funcionamiento: 2.402-2.480ghz - Tiempo en llamada: 5 horas - Sensibilidad: 108 +/- 3DB - Especificaciones de la batería de los auriculares: 45 mAh - Especificaciones de la batería del compartimento de carga: 1800 mAh con ic de protección - Tiempo de carga de los auriculares: 1 hora aprox. - Peso de los auriculares: 75g (peso neto)",
+    "price": 42,
+    "category": "auriculares",
+    "section": "accesorios",
+    "pictureUrl":  "https://i.ibb.co/2YG62fJ/AITWST11-N.jpg" 
+  },
+  {
+    "id": 8,
+    "name": "Auriculares On-ear Lightning color blanco",
+    "description": "Especificaciones: - Tipo: On ear (supraaural) - Plug: Lightning - Largo de cable: 120cm - Material del cable: TPE - Potencia: 3-5MW - Impedancia: 32O - Color: Blanco",
+    "price": 17,
+    "category": "auriculares",
+    "section": "accesorios",
+    "pictureUrl": "https://i.ibb.co/zfQXP68/AOELB.jpg" 
+  },
+  {
+    "id": 9,
+    "name": "Apple iPhone 12 Púrpura 64GB Libre",
+    "description": "El iPhone 12 cuenta con una pantalla Super Retina XDR de 6.1 pulgadas de tecnología OLED y está potenciado por el nuevo procesador A14 Bionic con 4GB de RAM y 64GB de almacenamiento interno. El sistema de cámaras trasero es dual, con dos lentes de 12MP que agregan estabilización óptica de imagen, y varias mejoras de software y la cámara frontal TrueDepth es de 12 MP. El iPhone 12 utiliza reconocimiento de rostro Face ID para la seguridad, cuenta con soporte para carga rápida e inalámbrica, y corre iOS 14.",
+    "price": 1270,
+    "category": "ofertas",
+    "section" : "ofertas",
+    "pictureUrl": "https://i.ibb.co/7gmBRYr/IP12P64G.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Auriculares inalambricos TWS XY-30 color blanco",
+    "description": "Con sintonización profesional, chip de procesamiento Bluetooth 5.0, unidad de procesamiento de audio de alta velocidad, sonido estéreo HiFi y larga duración de la batería, el auricular es muy práctico de usar. Tan pronto como su teléfono encienda el Bluetooth, los auriculares se conectarán y emparejarán automáticamente después de abrir la funda. Sin el teléfono móvil, puede responder, rechazar, cambiar a la última o siguiente canción, así como lograr otras funciones con un toque.",
+    "price": 37,
+    "category": "ofertas",
+    "section" : "ofertas",
+    "pictureUrl": "https://i.ibb.co/x2jLWLH/AITWSXY-30-B.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Reloj Smartwatch D20 color rosa",
+    "description": "El reloj puede monitorizar los pasos, calorías, frecuencia cardíaca, distancia, calidad del sueño, etc. Del día. Al mismo tiempo, se puede conectar a un teléfono inteligente para ver la información, tomar fotos de forma remota, recuperar teléfonos móviles y otras funciones reflexivas y convenientes para que su vida sea más conveniente. Mantente al tanto de la intensidad de tu ejercicio y de tu estado físico para ajustar tu plan de fitness de manera oportuna.",
+    "price": 22,
+    "category": "ofertas",
+    "section" : "ofertas",
+    "pictureUrl": "https://i.ibb.co/0KyKPc7/SWATCHD20-R.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Smartwatch Xiaomi Haylou Solar LS05 color negro",
+    "description": "Mantenete conectado todo el día con este smartwatch Haylou Solar LS05 que cuenta con una pantalla de 1.28 pulgadas. Su batería de 340 mAh te ofrece la capacidad de durar hasta 30 días con una recarga. Tiene protección contra sudor y lluvia.",
+    "price": 74,
+    "category": "ofertas",
+    "section" : "ofertas",
+    "pictureUrl": "https://i.ibb.co/PQZNQd3/SWATCHXHSLS05-N.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Cargador Qi Magsafe inalámbrico genérico",
+    "description": "- Soporta carga magnética: este cargador magnético es compatible con la serie iPhone 12, compatible con la funda Magsafe para iPhone hace que la carga sea más sencilla. Excelente atracción magnética que te permite ajustar el ángulo libremente sin desviarse del centro del cargador, haciendo que el entretenimiento sea más libre. - Carga rápida máxima de 15 W: esta almohadilla de carga magnética soporta un máximo de 15 W de carga rápida Magsafe solo iPhone 12/12 Mini/12 Pro/12 Pro Max. Compatible con adaptador USB C y adaptador PD de 20W. - Protección de seguridad: el cargador inalámbrico magnético protege tu dispositivo de sobrecarga, sobrecorriente, sobrevoltaje, sobrecalentamiento y cortocircuito. Te proporciona una experiencia de carga mejor y más segura (Nota: no coloques objetos extraños de metal en la parte trasera de la funda del teléfono). - Diseño portátil: el diseño ligero hace que sea portátil y se puede poner en el bolsillo, bolsas de hombro, bolsos de mano, bolsas de viaje. no ocupa espacio. - Carga Inalámbrica",
+    "price": 20,
+    "category": "cargadores",
+    "section": "accesorios",
+    "pictureUrl": "https://i.ibb.co/hsJ2YsG/CQMAGI.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Ficha de carga para auto doble USB 3.1A color negro",
+    "description": "- Puertos USB duales, se pueden cargar dos dispositivos al mismo tiempo. - El chip de administración incorporado, la derivación inteligente y la carga rápida no dañarán su dispositivo. - Diseño de contactor de metal elástico, adecuado para enchufes de encendedores de cigarrillos de diferentes tamaños. - Entrada de voltaje amplio de 12V/24V, compatible con la mayoría de los modelos de automóviles del mercado.",
+    "price": 9,
+    "category": "cargadores",
+    "section": "accesorios",
+    "pictureUrl": "https://i.ibb.co/RHhb58L/FCAUSB3N.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Cargador original Samsung carga rapida 15W color blanco",
+    "description": "Cargador de CA rápido de la marca Samsung. Tiene un puerto USB Tipo C que te permite cargar hasta 15W. Le permite cargar rápidamente dispositivos, incl. en los estándares Power Delivery y AFC. Está hecho de material de PC ignífugo. Ha sido equipado con muchas protecciones, como sobrecalentamiento, sobretensión, alta tensión o sobrecarga.",
+    "price": 35,
+    "category": "cargadores",
+    "section": "accesorios",
+    "pictureUrl": "https://i.ibb.co/sQdwNQ1/COS15WB.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Cargador para Smartwatch T500",
+    "description": "Características: - Alta calidad. - Protección de energía: Protege tu reloj inteligente de la sobrecarga. - Diseño pequeño y ligero: conveniente para viajeros y usuarios de negocios. - Plug and play: carga simultáneamente y sin problemas en el ordenador, o conecta directamente a la pared o al cargador USB del coche.",
+    "price": 5,
+    "category": "cargadores",
+    "section": "accesorios",
+    "pictureUrl": "https://i.ibb.co/3Y2Rx2R/CSWATCHT500.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Protector Samsung Galaxy S23 Plus engomado con textura color negro",
+    "description": "Protector de suave textura engomada por fuera y afelpada por dentro de color negro para Samsung Galaxy S23 Plus.",
+    "price": 15,
+    "category": "protectores",
+    "section": "accesorios",
+    "pictureUrl": "https://i.ibb.co/Tv0XD30/S23PETN.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Protector rígido Samsung Galaxy S23 Plus bordes color negro",
+    "description": "Case de TPU rígido transparente con bordes reforzados en color negro para Samsung S23 Plus.",
+    "price": 19,
+    "category": "protectores",
+    "section": "accesorios",
+    "pictureUrl": "https://i.ibb.co/kBv52bR/S23PBN.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Protector Xiaomi Redmi Note 11 Pro diseño flores de colores",
+    "description": "Funda de tpu flexible transparente con diseño de floral Xiaomi Redmi Note 11 Pro.",
+    "price": 10,
+    "category": "protectores",
+    "section": "accesorios",
+    "pictureUrl": "https://i.ibb.co/StzdBxh/PXRN11-PDFC.jpg" 
+  },
+  {
+    "id": 20,
+    "name": "Protector Prodigee KickIt iPhone 14 Plus bordes color rosa",
+    "description": "El material dual con diseño suave al tacto proporciona una protección superior y protege su nuevo iPhone de golpes y caídas. La función Kickstand agregada ofrece al usuario un ángulo de visión óptimo. Este estuche ofrece imanes integrados diseñados para alinearse perfectamente con su nuevo iPhone para un agarre firme y carga inalámbrica. Compatible con todos los accesorios MagSafe.",
+    "price": 55,
+    "category": "protectores",
+    "section": "accesorios",
+    "pictureUrl": "https://i.ibb.co/84BVgz5/PPKI14-PBR.jpg" 
+  }
+]

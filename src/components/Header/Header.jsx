@@ -26,7 +26,6 @@ const Header = () => {
           LÍDER EN VENTA DE CELULARES Y ACCESORIOS EN URUGUAY.
         </Typography>
       </AppBar>
-      <NavBars />
     </header>
   );
 };

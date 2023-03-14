@@ -1,26 +1,48 @@
+import { useState, useEffect } from "react";
+import { pedirProductos } from "../../helpers/pedirDatos.js"
+import ItemList from "./ItemList/ItemList.jsx";
 import Slider from "../Slider/Slider.jsx";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import { useParams } from "react-router-dom";
 
-const ItemListContainer = ({ greeting }) => {
+
+
+const ItemListContainer = () => {
+
+  const { sectionId } = useParams();
+
+  const [productos, setProductos] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+
+  // Para que se ejecute una sola vez, se le pasa un array vacio como segundo parametro
+  useEffect(() => {
+    setLoading(true);
+
+    pedirProductos()
+      .then((response) => {
+        if (!sectionId) {
+          setProductos(response);
+        } else {
+          setProductos(response.filter((prod) => prod.section === sectionId));
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        console.log("Fin de la peticion");
+        setLoading(false);
+      });
+
+  }, [sectionId]);
+
   return (
     <>
+
       <Slider />
-      <Container className="container" maxWidth="lg">
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{
-            textAlign: "center",
-            color: (theme) => theme.palette.primary.dark,
-            fontWeight: "bold",
-            fontSize: "1.5rem",
-            margin: "1rem",
-          }}
-        >
-          {greeting}
-        </Typography>
-      </Container>
+
+      {loading ? <h2>Cargando...</h2> : <ItemList items={productos} />}
+
     </>
   );
 };

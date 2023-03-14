@@ -1,17 +1,15 @@
 import { ThemeProviderCustom } from "../../theme/Theme.jsx";
-import AppBar from "@mui/material/AppBar";
-import Container from "@mui/material/Container";
-import Toolbar from "@mui/material/Toolbar";
+import {
+  AppBar, Container, Toolbar, Typography, Box, Divider
+} from "@mui/material";
 import { logo } from "../../img/Img.jsx";
 import CartWidget from "../CartWidget/CartWidget.jsx";
 import PhoneAndroidOutlinedIcon from "@mui/icons-material/PhoneAndroidOutlined";
 import HeadphonesOutlinedIcon from "@mui/icons-material/HeadphonesOutlined";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
+import { Link } from "react-router-dom";
 
-export const NavBar1 = () => {
+export const NavBar1 = ({ black }) => {
   return (
     <ThemeProviderCustom>
       <AppBar
@@ -39,7 +37,9 @@ export const NavBar1 = () => {
                 marginBottom: "1rem",
               }}
             >
-              <img src={logo[0].imgPath} alt={logo[0].label} />
+              <Link to="/">
+                <img src={logo[0].imgPath} alt={logo[0].label} />
+              </Link>
             </Box>
           </Toolbar>
         </Container>
@@ -93,15 +93,15 @@ export const NavBar2 = () => {
                 className="textoSecciones"
                 marginRight={"1rem"}
               >
-                <a
-                  href="#"
+                <Link
+                  to="/celulares"
                   style={{
                     textDecoration: "none",
                     color: "#323232",
                   }}
                 >
                   CELULARES
-                </a>
+                </Link>
               </Typography>
               <HeadphonesOutlinedIcon
                 sx={{
@@ -115,15 +115,15 @@ export const NavBar2 = () => {
                 className="textoSecciones"
                 marginRight={"1rem"}
               >
-                <a
-                  href="#"
+                <Link
+                  to="/accesorios"
                   style={{
                     textDecoration: "none",
                     color: "#323232",
                   }}
                 >
                   ACCESORIOS
-                </a>
+                </Link>
               </Typography>
               <LocalOfferOutlinedIcon
                 sx={{
@@ -137,15 +137,15 @@ export const NavBar2 = () => {
                 className="textoSecciones"
                 marginRight={"1rem"}
               >
-                <a
-                  href="#"
+                <Link
+                  to="/ofertas"
                   style={{
                     textDecoration: "none",
                     color: "#323232",
                   }}
                 >
                   OFERTAS
-                </a>
+                </Link>
               </Typography>
             </Box>
             <Box>
