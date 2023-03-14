@@ -8,7 +8,7 @@ const Tema = createTheme({
     },
     secondary: {
       main: "#323232",
-      light: "#a8adb3",
+      light: "#8b9198",
       dark: "black",
     },
     info: {
