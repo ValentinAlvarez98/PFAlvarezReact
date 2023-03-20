@@ -1,5 +1,6 @@
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import { NavBar1, NavBar2 } from "./components/NavBars/NavBars";
+import NavBar1 from "./components/NavBars/NavBar1.jsx";
+import NavBar2 from "./components/NavBars/NavBar2.jsx";
 import { HeaderWithTheme } from "./components/Header/Header";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";

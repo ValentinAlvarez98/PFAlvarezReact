@@ -1,7 +1,6 @@
 import { ThemeProviderCustom } from "../../theme/Theme.jsx";
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
-import NavBars from "../NavBars/NavBars.jsx";
 
 const Header = () => {
   return (

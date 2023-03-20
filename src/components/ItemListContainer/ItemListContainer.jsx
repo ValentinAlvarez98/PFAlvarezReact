@@ -14,7 +14,6 @@ const ItemListContainer = () => {
 
   const [loading, setLoading] = useState(true);
 
-  // Para que se ejecute una sola vez, se le pasa un array vacio como segundo parametro
   useEffect(() => {
     setLoading(true);
 
