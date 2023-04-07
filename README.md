@@ -1,5 +1,5 @@
 # PFAlvarezReact
 
-# Proyecto final del curso de ReactJs en CODERHOUSE
+- Proyecto final del curso de ReactJs en CODERHOUSE
 
 ## Readme en preparación
