@@ -8,7 +8,6 @@ export const pedirProductos = () => {
     const productos = res.docs.map((doc) => {
       return { ...doc.data(), id: doc.id };
     });
-    console.log(productos);
     return productos;
   });
 };
@@ -22,7 +21,6 @@ const pedirProductoPorId = async (id) => {
     }
     throw new Error("El producto no existe");
   } catch (error) {
-    console.log(error);
     throw new Error("Error al obtener el producto");
   }
 };

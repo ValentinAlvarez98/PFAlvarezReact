@@ -24,7 +24,6 @@ const ItemListContainer = () => {
         console.log(error);
       })
       .finally(() => {
-        console.log("Fin de la peticion");
         setLoading(false);
       });
   }, [sectionId]);

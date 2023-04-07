@@ -1,4 +1,4 @@
-import { Container, Box, Card, CardContent, CardMedia, Button, Grid, Typography } from '@mui/material';
+import { Container, Box, Card, CardMedia, Button, Grid, Typography } from '@mui/material';
 import { logo, socialMedia, payments } from "../../img/Img.jsx";
 import { Link } from "react-router-dom";
 import SVG from './SVG.jsx';

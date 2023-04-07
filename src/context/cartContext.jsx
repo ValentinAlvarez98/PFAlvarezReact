@@ -18,8 +18,6 @@ export const CartProvider = ({ children }) => {
                 prod.id === item.id ? { ...prod, quantity: prod.quantity + 1, stock: prod.stock - 1 } : prod
             );
             setCart(updatedCart);
-        } else {
-            alert("No hay stock disponible para este producto.");
         }
     };
 

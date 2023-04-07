@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { pedirProductos } from '../../helpers/pedirDatos.js';
-import { Grid, Tabs, Tab, Typography, Box, Button, Container } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Grid, Tabs, Tab, Box, } from '@mui/material';
 import Item from '../ItemListContainer/Item/Item.jsx';
 
 function TabPanel(props) {

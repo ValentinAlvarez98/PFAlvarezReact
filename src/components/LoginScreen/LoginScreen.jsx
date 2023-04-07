@@ -11,6 +11,9 @@ const LoginScreen = () => {
     const [password, setPassword] = useState('');
     const [isRegistering, setIsRegistering] = useState(false);
 
+    const [isLogged, setIsLogged] = useState(false);
+    const [isRegister, setIsRegister] = useState(false);
+
     const { handleLogin } = useContext(LoginContext);
 
     const handleSubmit = async (e) => {
@@ -19,11 +22,11 @@ const LoginScreen = () => {
         try {
             if (isRegistering) {
                 await createUserWithEmailAndPassword(auth, email, password);
-                console.log('Usuario registrado correctamente');
+                setIsRegister(true);
             } else {
                 await signInWithEmailAndPassword(auth, email, password);
                 handleLogin();
-                console.log('Usuario logueado correctamente');
+                setIsLogged(true);
             }
         } catch (error) {
             console.log(error);
@@ -39,14 +42,15 @@ const LoginScreen = () => {
                 boxShadow: '5px 6px 10px 0px #8b9198',
             }}
         >
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}
+                style={{ paddingTop: '2rem' }}
+            >
                 <Box
                     sx={{
                         display: 'flex',
                         flexDirection: 'row',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        mt: 2,
                     }}
                 >
                     <TextField
@@ -108,6 +112,47 @@ const LoginScreen = () => {
 
                 </Box>
             </form>
+            {isLogged ?
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    mt: 2,
+                }}>
+                    <Typography
+                        className="regular"
+                        sx={{
+                            fontSize: "0.8rem",
+                            mb: 2,
+                        }}
+                    >
+                        {isLogged ? "¡Bienvenido!" : ""}
+                    </Typography>
+                </Box>
+                : null}
+
+            {isRegister ?
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    mt: 2,
+                }}>
+                    <Typography
+                        className="regular"
+                        sx={{
+                            fontSize: "0.8rem",
+                            mb: 2,
+                        }}
+                    >
+                        {isRegister ? "¡Usuario registrado correctamente!" : ""}
+                    </Typography>
+                </Box>
+                : null}
+
+
             <Box sx={{
                 display: 'flex',
                 flexDirection: 'row',
