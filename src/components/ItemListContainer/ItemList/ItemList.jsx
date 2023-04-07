@@ -41,12 +41,12 @@ const ItemList = ({ items }) => {
                             margin: "1rem"
                         }}>
                             <Typography
-                                variant="h6"
+                                variant="body2"
                                 component="div"
+                                className="bold"
                                 sx={{
                                     textAlign: "center",
                                     color: (theme) => theme.palette.primary.dark,
-                                    fontWeight: "bold",
                                     fontSize: "1.5rem",
                                     margin: "1rem",
                                 }}
@@ -55,7 +55,13 @@ const ItemList = ({ items }) => {
                             </Typography>
                         </Box>
                         <Grid container spacing={3}>
-                            {items.map((producto) => <Item key={producto.id} item={producto} />)}
+
+                            {items.map((producto) =>
+                                <Grid item xs={12} sm={6} md={3} key={producto.id} >
+                                    <Item item={producto}
+                                    />
+                                </Grid>)}
+
                         </Grid>
                     </>
                 ) : (

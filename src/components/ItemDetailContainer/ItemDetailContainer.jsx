@@ -12,20 +12,19 @@ const ItemDetailContainer = () => {
     const { itemId } = useParams();
 
     useEffect(() => {
-        setLoading(true)
+        setLoading(true);
 
-        pedirProductoPorId(Number(itemId))
+        pedirProductoPorId(itemId)
             .then((response) => {
-                setItem(response)
+                setItem(response);
             })
             .catch((error) => {
-                console.log(error)
+                console.log(error);
             })
             .finally(() => {
-                console.log("Fin de la peticion")
-                setLoading(false)
-            })
-    }, [])
+                setLoading(false);
+            });
+    }, [itemId]);
 
     return (
         <div>

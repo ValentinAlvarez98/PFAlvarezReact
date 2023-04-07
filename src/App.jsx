@@ -1,31 +1,30 @@
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import { ThemeProviderCustom } from "./theme/Theme.jsx";
 import NavBar1 from "./components/NavBars/NavBar1.jsx";
 import NavBar2 from "./components/NavBars/NavBar2.jsx";
 import { HeaderWithTheme } from "./components/Header/Header";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-
+import { BrowserRouter } from "react-router-dom";
+import { CartProvider } from "./context/cartContext.jsx";
+import Footer from "./components/Footer/Footer.jsx";
+import { Divider } from "@mui/material";
+import LoginProvider from "./context/loginContext.jsx";
+import AppRoutes from "./routes/Routes.jsx";
 
 function App() {
-
   return (
-    <BrowserRouter>
-
-      <HeaderWithTheme />
-
-      <NavBar1 />
-      <NavBar2 />
-
-      <Routes>
-
-        <Route path="/" element={<ItemListContainer />} />
-        <Route path="/:sectionId" element={<ItemListContainer />} />
-        <Route path="/:sectionId/:itemId" element={<ItemDetailContainer />} />
-        <Route path="*" element={<Navigate to="/" />} />
-
-      </Routes>
-
-    </BrowserRouter>
+    <ThemeProviderCustom>
+      <LoginProvider>
+        <CartProvider>
+          <BrowserRouter>
+            <HeaderWithTheme />
+            <NavBar1 />
+            <NavBar2 />
+            <AppRoutes />
+            <Divider sx={{ mt: 5 }} />
+            <Footer />
+          </BrowserRouter>
+        </CartProvider>
+      </LoginProvider>
+    </ThemeProviderCustom>
   );
 }
 

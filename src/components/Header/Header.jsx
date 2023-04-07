@@ -15,7 +15,7 @@ const Header = () => {
         }}
       >
         <Typography
-          className="textoHeaderUno"
+          className="bold"
           variant="body1"
           sx={{
             marginTop: "0.7rem",

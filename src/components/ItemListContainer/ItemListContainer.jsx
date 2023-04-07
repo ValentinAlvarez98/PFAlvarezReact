@@ -1,17 +1,12 @@
 import { useState, useEffect } from "react";
 import { pedirProductos } from "../../helpers/pedirDatos.js"
 import ItemList from "./ItemList/ItemList.jsx";
-import Slider from "../Slider/Slider.jsx";
+import Sliders from "../Sliders/Sliders.jsx";
 import { useParams } from "react-router-dom";
 
-
-
 const ItemListContainer = () => {
-
   const { sectionId } = useParams();
-
   const [productos, setProductos] = useState([]);
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -32,16 +27,12 @@ const ItemListContainer = () => {
         console.log("Fin de la peticion");
         setLoading(false);
       });
-
   }, [sectionId]);
 
   return (
     <>
-
-      <Slider />
-
+      <Sliders />
       {loading ? <h2>Cargando...</h2> : <ItemList items={productos} />}
-
     </>
   );
 };

@@ -1,17 +1,30 @@
-import MOCK_PRODUCTS from "../data/MOCK_DATA.json";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/firebase.jsx";
 
 export const pedirProductos = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(MOCK_PRODUCTS);
-    }, 1000);
+  const productosRef = collection(db, "productos");
+
+  return getDocs(productosRef).then((res) => {
+    const productos = res.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+    console.log(productos);
+    return productos;
   });
 };
 
-export const pedirProductoPorId = (id) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(MOCK_PRODUCTS.find((prod) => prod.id === id));
-    }, 1500);
-  });
+const pedirProductoPorId = async (id) => {
+  try {
+    const productoDoc = doc(db, "productos", id);
+    const productoSnap = await getDoc(productoDoc);
+    if (productoSnap.exists()) {
+      return { id: productoSnap.id, ...productoSnap.data() };
+    }
+    throw new Error("El producto no existe");
+  } catch (error) {
+    console.log(error);
+    throw new Error("Error al obtener el producto");
+  }
 };
+
+export { pedirProductoPorId };

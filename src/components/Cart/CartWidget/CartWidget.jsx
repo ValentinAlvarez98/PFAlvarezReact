@@ -2,11 +2,20 @@ import IconButton from "@mui/material/IconButton";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
-import { ThemeProviderCustom } from "../../theme/Theme.jsx";
+import { useContext } from "react";
+import { CartContext } from "../../../context/cartContext.jsx";
+import { Link } from "react-router-dom";
 
+// Se crea el componente CartWidget
 const CartWidget = () => {
+
+  // Se obtienen los datos del contexto
+  const { totalCantidad } = useContext(CartContext);
+
   return (
-    <ThemeProviderCustom>
+
+    <Link to="/cart">
+
       <MenuItem
         sx={{
           background: (theme) => theme.palette.primary.main,
@@ -15,6 +24,7 @@ const CartWidget = () => {
           },
         }}
       >
+
         <IconButton
           aria-label="cart"
           sx={{
@@ -30,8 +40,9 @@ const CartWidget = () => {
             },
           }}
         >
+
           <Badge
-            badgeContent={2}
+            badgeContent={totalCantidad() > 0 ? totalCantidad() : "0"}
             sx={{
               "& .MuiBadge-badge": {
                 background: (theme) => theme.palette.info.main,
@@ -39,11 +50,17 @@ const CartWidget = () => {
               },
             }}
           >
+
             <ShoppingBagOutlinedIcon sx={{ color: "white" }} />
+
           </Badge>
+
         </IconButton>
+
       </MenuItem>
-    </ThemeProviderCustom>
+
+    </Link>
+
   );
 };
 
