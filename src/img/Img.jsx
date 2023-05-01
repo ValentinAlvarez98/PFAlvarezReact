@@ -13,6 +13,8 @@ import Brou from "./payment/brou.png";
 import RedPagos from "./payment/redPagos.png";
 import Oca from "./payment/oca.png";
 
+{ /* Se exportan las imágenes. */ }
+
 export const logo = [
   {
     label: "Logo Bunker PhoneShop",
