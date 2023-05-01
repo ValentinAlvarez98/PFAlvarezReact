@@ -2,6 +2,7 @@ import { useState } from "react";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
+{ /* Se crean los estilos del componente AdSlider. */ }
 const slideStyles = {
   width: "100%",
   height: "100%",
@@ -32,8 +33,11 @@ const sliderStyles = {
   height: "100%",
 };
 
+
+{ /* Se crea el componente AdSlider, el cual se encarga de mostrar el slider de la página de inicio. */ }
 const AdSlider = ({ slides }) => {
 
+  { /* Se crean los estados del componente AdSlider. */ }
   const [current, setCurrent] = useState(0);
 
   const nextSlide = () => {
@@ -53,6 +57,7 @@ const AdSlider = ({ slides }) => {
     backgroundImage: `url(${slides[current].imgPath})`,
   };
 
+  { /* Se retornan los elementos del componente AdSlider. */ }
   return (
 
     <div style={sliderStyles}>

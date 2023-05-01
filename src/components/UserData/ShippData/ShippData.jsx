@@ -3,7 +3,9 @@ import { TextField, Button, Typography, Box, Container, MenuItem } from '@mui/ma
 
 const regions = ['Artigas', 'Canelones', 'Cerro Largo', 'Colonia', 'Durazno', 'Flores', 'Florida', 'Lavalleja', 'Maldonado', 'Montevideo', 'Paysandú', 'Río Negro', 'Rivera', 'Rocha', 'Salto', 'San José', 'Soriano', 'Tacuarembó', 'Treinta y Tres'];
 
+{ /* Se crea el componente ShippData, con el mismo funcionamiento que PersData */ }
 const ShippData = ({ onSubmit, data }) => {
+
     const [formData, setFormData] = useState(data || {
         address: '',
         apartment: '',

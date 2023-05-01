@@ -8,8 +8,10 @@ import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 import { Link } from "react-router-dom";
 
 
-
+{ /* Se crea el componente NavBar2, el cual se encarga de mostrar el segundo navbar de la página. */ }
 const NavBar2 = () => {
+
+  { /* Se retorna el componente NavBar2. */ }
   return (
 
     <AppBar

@@ -8,11 +8,16 @@ import UserData from "../components/UserData/UserData.jsx";
 import Cart from "../components/Cart/Cart";
 import { Navigate } from "react-router-dom";
 
+{ /* Se exporta el componente AppRoutes, el cual se encarga de manejar las rutas de la aplicación. */ }
 export default function AppRoutes() {
+
+    { /* Se obtiene el estado isLoggedIn del contexto. */ }
     const { isLoggedIn } = useContext(LoginContext);
 
     return (
         <Routes>
+
+            { /* Se crean las rutas de la aplicación en función del estado isLoggedIn. */}
             {isLoggedIn ? (
                 <>
                     <Route path="/" element={<ItemListContainer />} />

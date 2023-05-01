@@ -3,7 +3,10 @@ import { logo, socialMedia, payments } from "../../img/Img.jsx";
 import { Link } from "react-router-dom";
 import SVG from './SVG.jsx';
 
+{/* Se crea el componente Footer, el cual se encarga de mostrar el footer de la página. */ }
 const Footer = () => {
+
+    {/* Se retorna el componente Footer. */ }
     return (
         <>
             <SVG viewBox="0 0 1440 320" />

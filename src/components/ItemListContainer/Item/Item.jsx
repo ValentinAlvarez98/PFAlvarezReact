@@ -1,9 +1,21 @@
 import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import FlipperImg from "../../FlipperImg/FlipperImg";
+import { useContext } from "react";
+import { CartContext } from "../../../context/cartContext";
 
+
+{/* Se crea el componente Item, el cual se encarga de mostrar un producto en el componente ItemList. */ }
 const Item = ({ item }) => {
 
+    {/* Se obtienen las funciones del contexto. */ }
+    const { addToCart } = useContext(CartContext);
+
+    const handleAddToCart = () => {
+        addToCart(item);
+    };
+
+    {/* Se retorna el componente Item. */ }
     return (
 
         <Box
@@ -62,16 +74,20 @@ const Item = ({ item }) => {
                 </Button>
 
             </Link>
-            <Button className='semiBold' variant="contained" sx={{
-                backgroundColor: (theme) => theme.palette.primary.main,
-                color: (theme) => theme.palette.primary.contrastText,
-                width: '200px',
-                height: "30px",
-                borderRadius: '0.1rem',
-                marginTop: '1rem',
-                fontWeight: 'regular',
-                fontSize: '0.9rem',
-            }}>
+            <Button
+                onClick={handleAddToCart}
+                className='semiBold'
+                variant="contained"
+                sx={{
+                    backgroundColor: (theme) => theme.palette.primary.main,
+                    color: (theme) => theme.palette.primary.contrastText,
+                    width: '200px',
+                    height: "30px",
+                    borderRadius: '0.1rem',
+                    marginTop: '1rem',
+                    fontWeight: 'regular',
+                    fontSize: '0.9rem',
+                }}>
                 Agregar al carrito
             </Button>
         </Box>

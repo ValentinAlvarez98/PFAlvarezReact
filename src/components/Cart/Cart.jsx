@@ -37,7 +37,7 @@ const Cart = () => {
 
     return (
         <>
-            {/* Se renderiza el navbar del carrito y se pasa la función handleShowPersData */}
+            {/* Se renderiza el componente CartNavbar */}
             <CartNavbar
                 onShowUserData={handleShowUserData}
                 onHiddenUserData={handleHideUserData}
@@ -45,7 +45,7 @@ const Cart = () => {
                 onHiddenCheckOut={handleHideCheckOut}
             />
 
-            {/* Se crea un contenedor que ocupa todo el ancho de la pantalla */}
+            {/* Se renderiza el componente UserData o CheckOut o Cart */}
             {showUserData ? <UserData /> : showCheckOut ? <CheckOut /> :
                 (
                     <Container

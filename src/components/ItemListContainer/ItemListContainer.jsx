@@ -4,11 +4,15 @@ import ItemList from "./ItemList/ItemList.jsx";
 import Sliders from "../Sliders/Sliders.jsx";
 import { useParams } from "react-router-dom";
 
+{/* Se crea el componente ItemListContainer, el cual se encarga de mostrar una lista de productos. */ }
 const ItemListContainer = () => {
+
+  {/* Se crean los estados productos y loading. */ }
   const { sectionId } = useParams();
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  {/* Se obtienen los productos. */ }
   useEffect(() => {
     setLoading(true);
 
@@ -28,6 +32,7 @@ const ItemListContainer = () => {
       });
   }, [sectionId]);
 
+  {/* Se retorna el componente ItemListContainer. */ }
   return (
     <>
       <Sliders />

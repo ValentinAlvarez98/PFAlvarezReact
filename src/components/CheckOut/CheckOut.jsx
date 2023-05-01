@@ -12,11 +12,13 @@ import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { LoginContext } from '../../context/loginContext';
 
 
-
+{/* Se crea el componente CheckOut, el cual se encarga de mostrar el formulario de pago y de guardar la orden en la base de datos. */ }
 const CheckOut = () => {
 
+    {/* Se obtiene el usuario logueado. */ }
     const { auth } = useContext(LoginContext);
 
+    {/* Se crean los estados para guardar los datos del usuario, los datos de envío, el carrito y los datos de pago. */ }
     const [persData, setPersData] = useState(null);
     const [shippData, setShippData] = useState(null);
     const [cart, setCart] = useState(null);
@@ -27,6 +29,7 @@ const CheckOut = () => {
     const [cardSecurityCode, setCardSecurityCode] = useState("");
     const [cardInstallments, setCardInstallments] = useState("");
 
+    {/* Se obtienen los datos del usuario, los datos de envío y el carrito de la base de datos. */ }
     useEffect(() => {
         const userId = auth.currentUser.uid;
         const userDocRef = doc(db, 'users', userId);
@@ -50,10 +53,12 @@ const CheckOut = () => {
     }, []);
 
 
+    {/* Se crea la función handleSubmit, la cual se encarga de guardar la orden en la base de datos. */ }
     const handleSubmit = (e) => {
 
         e.preventDefault();
 
+        {/* Se crea el objeto order, el cual contiene los datos del usuario, los datos de envío, el carrito, el número de orden y el total de la orden. */ }
         const order = {
             PersData: {
                 name: persData.name,
@@ -86,6 +91,7 @@ const CheckOut = () => {
 
         };
 
+        {/* Se guarda el objeto order en la base de datos. */ }
         const userId = auth.currentUser.uid;
         const userDocRef = doc(db, 'orders', userId);
 
@@ -93,6 +99,7 @@ const CheckOut = () => {
 
     };
 
+    {/* Se retorna el formulario de pago. */ }
     return (
         <Container
             maxWidth="sm"

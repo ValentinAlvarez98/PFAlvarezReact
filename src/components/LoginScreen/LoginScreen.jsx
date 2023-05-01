@@ -3,22 +3,28 @@ import { TextField, Button, Typography, Container, Box } from '@mui/material';
 import { LoginContext } from '../../context/loginContext';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 
+{ /* Se crea el componente LoginScreen, el cual se encarga de mostrar el formulario de login. */ }
 const LoginScreen = () => {
+
+    { /* Se obtienen las funciones del contexto. */ }
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isRegistering, setIsRegistering] = useState(false);
 
     const { login } = useContext(LoginContext);
 
+    { /* Se crea la función handleSubmit, la cual se encarga de manejar el submit del formulario. */ }
     const handleSubmit = async (e) => {
         e.preventDefault();
         await login(email, password, isRegistering);
     };
 
+    { /* Se crea la función handleToggleRegister, la cual se encarga de manejar el toggle entre login y register. */ }
     const handleToggleRegister = () => {
         setIsRegistering(!isRegistering);
     };
 
+    {/* Se retorna el componente LoginScreen. */ }
     return (
         <Container
             maxWidth="md"

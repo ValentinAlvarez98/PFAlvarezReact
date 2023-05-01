@@ -5,17 +5,22 @@ import BasicTabs from "../../Tabs/Tabs.jsx";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+{/* Se crea el componente ItemList, el cual se encarga de mostrar una lista de productos. */ }
 const ItemList = ({ items }) => {
+
+    { /* Se crean los estados paginaInicio y ruta. */ }
     const [paginaInicio, setPaginaInicio] = useState(false);
     const location = useLocation();
     const ruta = location.pathname;
 
+    { /* Se obtiene la ruta actual. */ }
     useEffect(() => {
         if (ruta === '/celulares' || ruta === '/accesorios' || ruta === '/ofertas') {
             setPaginaInicio(true);
         }
     }, [ruta]);
 
+    { /* Se crea la función obtenerTexto, la cual se encarga de obtener el texto a mostrar en la página. */ }
     const obtenerTexto = () => {
         switch (ruta) {
             case '/celulares':
@@ -29,9 +34,13 @@ const ItemList = ({ items }) => {
         }
     };
 
+    { /* Se retorna el componente ItemList. */ }
     return (
         <>
             <Container className="container" maxWidth="lg">
+
+                { /* Se muestra el texto correspondiente a la ruta actual. */}
+
                 {paginaInicio ? (
                     <>
                         <Box sx={{

@@ -2,6 +2,7 @@ import { ThemeProviderCustom } from "../../theme/Theme.jsx";
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
 
+{/* Se crea el componente Header, el cual se encarga de mostrar el header de la página. */ }
 const Header = () => {
   return (
     <header>
@@ -31,6 +32,7 @@ const Header = () => {
 
 export default Header;
 
+{/* Se exporta el componente Header con el estilo personalizado. */ }
 export const HeaderWithTheme = () => {
   return (
     <ThemeProviderCustom>

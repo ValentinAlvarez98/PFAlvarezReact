@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { TextField, Button, Typography, Box, Container } from '@mui/material';
 
+{ /* Se crea el componente PersData, el cual se encarga de mostrar el formulario de datos personales. */ }
 const PersData = ({ onSubmit, data }) => {
 
+    { /* Se crea el estado formData, el cual se encarga de almacenar los datos del formulario. */ }
     const [formData, setFormData] = useState(data || {
         name: '',
         lastName: '',
@@ -11,6 +13,7 @@ const PersData = ({ onSubmit, data }) => {
         phone: '',
     });
 
+    { /* Se crea la función handleChange, la cual se encarga de actualizar el estado formData. */ }
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData((prevState) => ({
@@ -19,6 +22,7 @@ const PersData = ({ onSubmit, data }) => {
         }));
     };
 
+    { /* Se crea la función handleSubmit, la cual se encarga de enviar los datos del formulario. */ }
     const handleSubmit = (event) => {
         event.preventDefault();
         onSubmit(formData, null);
@@ -33,6 +37,7 @@ const PersData = ({ onSubmit, data }) => {
     };
 
 
+    { /* Se retorna el componente PersData. */ }
     return (
         <Container
             maxWidth="sm"

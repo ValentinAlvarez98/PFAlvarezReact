@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { Search as SearchIcon, AccountCircle } from "@mui/icons-material";
 import { logo } from "../../img/Img";
 
+{ /* Se crea el componente NavBar1, el cual se encarga de mostrar el primer navbar de la página. */ }
 const NavBar1 = () => {
+
+    { /* Se retorna el componente NavBar1. */ }
     return (
         <AppBar
             position="static"
