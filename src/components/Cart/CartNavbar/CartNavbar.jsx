@@ -9,7 +9,7 @@ const buttonStyle = {
 };
 
 // Se crea el componente CartNavbar que contiene la barra de navegación del carrito
-const CartNavbar = ({ onShowUserData, onHiddenUserData, onShowPaymentData, onHiddenPaymentData }) => {
+const CartNavbar = ({ onShowUserData, onHiddenUserData, onShowCheckOut, onHiddenCheckOut }) => {
     return (
 
         // Se crea un contenedor que ocupa todo el ancho de la pantalla
@@ -40,7 +40,7 @@ const CartNavbar = ({ onShowUserData, onHiddenUserData, onShowPaymentData, onHid
                         sx={buttonStyle}
                         onClick={() => {
                             onHiddenUserData();
-                            onHiddenPaymentData();
+                            onHiddenCheckOut();
                         }}
                     >
 
@@ -74,7 +74,7 @@ const CartNavbar = ({ onShowUserData, onHiddenUserData, onShowPaymentData, onHid
                         sx={buttonStyle}
                         onClick={() => {
                             onShowUserData();
-                            onHiddenPaymentData();
+                            onHiddenCheckOut();
                         }}
                     >
 
@@ -107,7 +107,7 @@ const CartNavbar = ({ onShowUserData, onHiddenUserData, onShowPaymentData, onHid
                     <mui.Button
                         sx={buttonStyle}
                         onClick={() => {
-                            onShowPaymentData();
+                            onShowCheckOut();
                             onHiddenUserData();
                         }}
                     >

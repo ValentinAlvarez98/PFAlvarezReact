@@ -6,14 +6,14 @@ import CartItems from "./CartItems/CartItems.jsx";
 import { CartContext } from "../../context/cartContext.jsx";
 import CartResume from "./CartResume/CartResume.jsx";
 import UserData from "../UserData/UserData.jsx";
-import PaymentData from "../UserData/PaymentData/PaymentData.jsx";
+import CheckOut from "../CheckOut/CheckOut.jsx";
 
 // Se crea el componente Cart que contiene el carrito de compras
 const Cart = () => {
     // Se define el estado para controlar si se debe mostrar PersData
     const [showUserData, setShowUserData] = useState(false);
 
-    const [showPaymentData, setShowPaymentData] = useState(false);
+    const [showCheckOut, setShowCheckOut] = useState(false);
 
     // Se obtienen los datos del contexto
     const { totalPrice } = useContext(CartContext);
@@ -23,16 +23,16 @@ const Cart = () => {
         setShowUserData(true);
     };
 
-    const handleShowPaymentData = () => {
-        setShowPaymentData(true);
+    const handleShowCheckOut = () => {
+        setShowCheckOut(true);
     };
 
     const handleHideUserData = () => {
         setShowUserData(false);
     };
 
-    const handleHidePaymentData = () => {
-        setShowPaymentData(false);
+    const handleHideCheckOut = () => {
+        setShowCheckOut(false);
     };
 
     return (
@@ -41,12 +41,12 @@ const Cart = () => {
             <CartNavbar
                 onShowUserData={handleShowUserData}
                 onHiddenUserData={handleHideUserData}
-                onShowPaymentData={handleShowPaymentData}
-                onHiddenPaymentData={handleHidePaymentData}
+                onShowCheckOut={handleShowCheckOut}
+                onHiddenCheckOut={handleHideCheckOut}
             />
 
             {/* Se crea un contenedor que ocupa todo el ancho de la pantalla */}
-            {showUserData ? <UserData /> : showPaymentData ? <PaymentData /> :
+            {showUserData ? <UserData /> : showCheckOut ? <CheckOut /> :
                 (
                     <Container
                         maxWidth="lg"

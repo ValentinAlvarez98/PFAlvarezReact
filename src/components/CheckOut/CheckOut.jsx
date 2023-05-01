@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import {
     TextField,
     Button,
@@ -7,34 +7,90 @@ import {
     Container,
     MenuItem,
 } from '@mui/material';
+import { db } from '../../firebase/firebase';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { LoginContext } from '../../context/loginContext';
 
-const PaymentData = ({ onSubmit, data }) => {
-    const [formData, setFormData] = useState(data || {
-        cardNumber: '',
-        cardHolderName: '',
-        expirationDate: '',
-        securityCode: '',
-        installments: '',
-    });
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormData((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
-    };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        onSubmit(formData, null);
-        setFormData({
-            cardNumber: '',
-            cardHolderName: '',
-            expirationDate: '',
-            securityCode: '',
-            installments: '',
+const CheckOut = () => {
+
+    const { auth } = useContext(LoginContext);
+
+    const [persData, setPersData] = useState(null);
+    const [shippData, setShippData] = useState(null);
+    const [cart, setCart] = useState(null);
+
+    const [cardNumber, setCardNumber] = useState("");
+    const [cardHolderName, setCardHolderName] = useState("");
+    const [cardExpirationDate, setCardExpirationDate] = useState("");
+    const [cardSecurityCode, setCardSecurityCode] = useState("");
+    const [cardInstallments, setCardInstallments] = useState("");
+
+    useEffect(() => {
+        const userId = auth.currentUser.uid;
+        const userDocRef = doc(db, 'users', userId);
+        getDoc(userDocRef).then((doc) => {
+            if (doc.exists()) {
+                setPersData(doc.data().persData);
+                setShippData(doc.data().shippData);
+            }
         });
+    }, []);
+
+
+    useEffect(() => {
+        const userId = auth.currentUser.uid;
+        const userDocRef = doc(db, 'cart', userId);
+        getDoc(userDocRef).then((doc) => {
+            if (doc.exists()) {
+                setCart(doc.data());
+            }
+        });
+    }, []);
+
+
+    const handleSubmit = (e) => {
+
+        e.preventDefault();
+
+        const order = {
+            PersData: {
+                name: persData.name,
+                lastName: persData.lastName,
+                identification: persData.identification,
+                cellphone: persData.cellphone,
+                phone: persData.phone,
+            },
+
+            ShippData: {
+                address: shippData.address,
+                apartment: shippData.apartment,
+                location: shippData.location,
+                region: shippData.region,
+                areaCode: shippData.areaCode,
+            },
+
+            PaymentData: {
+                cardNumber: cardNumber,
+                cardHolderName: cardHolderName,
+                cardExpirationDate: cardExpirationDate,
+                cardSecurityCode: cardSecurityCode,
+                cardInstallments: cardInstallments,
+            },
+
+            Cart: cart.cartItems,
+            OrderNumber: Math.floor(Math.random() * 1000000000),
+            TotalOrder: cart.totalPrice,
+
+
+        };
+
+        const userId = auth.currentUser.uid;
+        const userDocRef = doc(db, 'orders', userId);
+
+        setDoc(userDocRef, order)
+
     };
 
     return (
@@ -75,55 +131,55 @@ const PaymentData = ({ onSubmit, data }) => {
                 </Typography>
                 <form onSubmit={handleSubmit} style={{ width: '100%' }}>
                     <TextField
-                        value={formData.cardNumber}
-                        onChange={handleChange}
+                        value={cardNumber}
                         name="cardNumber"
                         label="Número de tarjeta"
                         variant="outlined"
                         fullWidth
                         margin="normal"
                         required
+                        onChange={(e) => setCardNumber(e.target.value)}
                     />
                     <TextField
-                        value={formData.cardHolderName}
-                        onChange={handleChange}
+                        value={cardHolderName}
                         name="cardHolderName"
                         label="Nombre del titular de la tarjeta"
                         variant="outlined"
                         fullWidth
                         margin="normal"
                         required
+                        onChange={(e) => setCardHolderName(e.target.value)}
                     />
                     <TextField
-                        value={formData.expirationDate}
-                        onChange={handleChange}
+                        value={cardExpirationDate}
                         name="expirationDate"
                         label="Fecha de expedición"
                         variant="outlined"
                         fullWidth
                         margin="normal"
                         required
+                        onChange={(e) => setCardExpirationDate(e.target.value)}
                     />
                     <TextField
-                        value={formData.securityCode}
-                        onChange={handleChange}
+                        value={cardSecurityCode}
                         name="securityCode"
                         label="Código de seguridad"
                         variant="outlined"
                         fullWidth
                         margin="normal"
                         required
+                        onChange={(e) => setCardSecurityCode(e.target.value)}
                     />
                     <TextField
                         select
-                        value={formData.installments}
-                        onChange={handleChange}
+                        value={cardInstallments}
                         name="installments"
                         label="Cuotas"
                         variant="outlined"
                         fullWidth
                         margin="normal"
                         required
+                        onChange={(e) => setCardInstallments(e.target.value)}
                     >
                         <MenuItem value={1}>1 cuota</MenuItem>
                         <MenuItem value={3}>3 cuotas</MenuItem>
@@ -152,7 +208,7 @@ const PaymentData = ({ onSubmit, data }) => {
                                 height: '2.75rem',
                             }}
                         >
-                            Enviar
+                            Pagar
                         </Button>
                     </Box>
                 </form>
@@ -161,4 +217,4 @@ const PaymentData = ({ onSubmit, data }) => {
     );
 };
 
-export default PaymentData;
+export default CheckOut;
