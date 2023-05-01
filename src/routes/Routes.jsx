@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import { LoginContext } from "../context/loginContext.jsx";
-import LoginScreen from "../components/LoginScreen/LoginScreen";
+import LoginScreen from "../components/LoginScreen/LoginScreen.jsx";
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer";
+import UserData from "../components/UserData/UserData.jsx";
 import Cart from "../components/Cart/Cart";
 import { Navigate } from "react-router-dom";
 
@@ -18,7 +19,7 @@ export default function AppRoutes() {
                     <Route path="/:sectionId" element={<ItemListContainer />} />
                     <Route path="/:sectionId/:itemId" element={<ItemDetailContainer />} />
                     <Route path="/cart" element={<Cart />} />
-                    <Route path="/login" element={<Navigate to="/" />} />
+                    <Route path="/login" element={<UserData />} />
                 </>
             ) : (
                 <>

@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import FlipperImg from "../../FlipperImg/FlipperImg";
 
 const Item = ({ item }) => {
 
@@ -14,12 +15,7 @@ const Item = ({ item }) => {
             }}
             key={item.id}
         >
-            <img
-                src={item.pictureUrl}
-                alt={item.name}
-                width="300"
-                height="300"
-            />
+            <FlipperImg item={item} size={300} />
             <Typography
                 className='semiBold'
                 variant="body2"
@@ -28,6 +24,7 @@ const Item = ({ item }) => {
                     textAlign: 'center',
                     fontSize: '0.95rem',
                     marginBottom: '0.5rem',
+                    height: '40px',
                 }}
             >
                 {item.name}
@@ -59,6 +56,7 @@ const Item = ({ item }) => {
                     borderRadius: '0.8rem',
                     fontWeight: 'regular',
                     fontSize: '0.9rem',
+                    mt: '1.5rem'
                 }}>
                     Ver detalles
                 </Button>

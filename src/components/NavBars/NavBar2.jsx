@@ -18,7 +18,7 @@ const NavBar2 = () => {
         background: "white",
       }}
     >
-      <Container className="container" maxWidth="xl">
+      <Container className="fullSize" maxWidth="lg">
         <Box
           sx={{
             display: "flex",

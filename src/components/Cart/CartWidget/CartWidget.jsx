@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const CartWidget = () => {
 
   // Se obtienen los datos del contexto
-  const { totalCantidad } = useContext(CartContext);
+  const { totalQuantity } = useContext(CartContext);
 
   return (
 
@@ -42,7 +42,7 @@ const CartWidget = () => {
         >
 
           <Badge
-            badgeContent={totalCantidad() > 0 ? totalCantidad() : "0"}
+            badgeContent={totalQuantity > 0 ? totalQuantity : "0"}
             sx={{
               "& .MuiBadge-badge": {
                 background: (theme) => theme.palette.info.main,

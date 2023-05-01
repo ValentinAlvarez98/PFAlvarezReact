@@ -5,23 +5,17 @@ import { CartContext } from "../../context/cartContext.jsx";
 
 const ItemCount = ({ prod }) => {
 
-    const { sumarCantidad, restarCantidad, actualizarCantidadProducto } = useContext(CartContext);
+    const { increaseQuantity, decreaseQuantity } = useContext(CartContext);
 
     const handleRestarCantidad = () => {
 
-        const newQuantity = prod.quantity - 1;
-        const newStock = prod.stock + 1;
-        restarCantidad(prod.id);
-        actualizarCantidadProducto(prod.id, newQuantity, newStock);
+        decreaseQuantity(prod.id);
 
     };
 
     const handleSumarCantidad = () => {
 
-        const newQuantity = prod.quantity + 1;
-        const newStock = prod.stock - 1;
-        sumarCantidad(prod.id);
-        actualizarCantidadProducto(prod.id, newQuantity, newStock);
+        increaseQuantity(prod.id);
 
     };
 

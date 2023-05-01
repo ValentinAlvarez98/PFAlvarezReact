@@ -1,63 +1,86 @@
-import {
-    AppBar, Container, Toolbar, Divider, Grid
-} from "@mui/material";
-import { logo } from "../../img/Img.jsx";
+import { AppBar, Toolbar, IconButton, InputBase, Box, Container } from "@mui/material";
 import { Link } from "react-router-dom";
-import PersonIcon from '@mui/icons-material/Person';
-
+import { Search as SearchIcon, AccountCircle } from "@mui/icons-material";
+import { logo } from "../../img/Img";
 
 const NavBar1 = () => {
     return (
-        <>
-            <AppBar
-                sx={{
-                    background: "white",
-                    boxShadow: "none",
-                    zIndex: 0,
-                }}
-                position="static"
-            >
-                <Container maxWidth="xl">
-                    <Toolbar
-                        className="fullSize"
-                        sx={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                        }}
-                    >
-                        <Grid container spacing={1}>
-                            <Grid item xs={3} sm={3} md={3} lg={2}
+        <AppBar
+            position="static"
+            sx={{
+                background: "white",
+            }}
+        >
+            <Container className="fullSize" maxWidth="lg">
+                <Toolbar
+                    className="fullSize"
+                    sx={{
+                        marginTop: "0.5rem",
+                        marginBottom: "0.5rem",
+                    }}
+                >
+                    <Link to="/">
+                        <img src={logo[0].imgPath} alt={logo[0].label} />
+                    </Link>
+
+                    <Box sx={{
+                        display: {
+                            md: "flex"
+                        },
+                        marginLeft: "7%",
+                    }}>
+                        <IconButton
+                            size="large"
+                            sx={{
+                                color: "white",
+                                backgroundColor: (theme) => theme.palette.primary.dark,
+                                p: "5px",
+                                borderStartStartRadius: "5px",
+                                borderEndStartRadius: "5px",
+                                borderStartEndRadius: "0px",
+                                borderEndEndRadius: "0px",
+                                height: "4.5vh",
+                                width: "4vw"
+                            }}
+                        >
+                            <SearchIcon />
+                        </IconButton>
+                        <InputBase
+                            placeholder="Buscar…"
+                            sx={{
+                                pl: 2,
+                                mr: 0,
+                                width: "42.5vw",
+                                backgroundColor: "whitesmoke",
+                            }}
+                        />
+
+                    </Box>
+                    <Box sx={{ display: { md: "flex" } }}>
+                        <Link to="/login" style={{ color: "white" }}>
+                            <IconButton
+                                size="large"
+                                color="inherit"
                                 sx={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "start",
-                                    marginTop: "1rem",
-                                    marginBottom: "1rem",
+                                    paddingLeft: "1rem",
+                                    paddingRight: "1rem",
+                                    marginRight: "1rem",
+                                    color: "white",
+                                    backgroundColor: (theme) => theme.palette.primary.dark,
+                                    borderStartStartRadius: "0px",
+                                    borderEndStartRadius: "0px",
+                                    borderStartEndRadius: "5px",
+                                    borderEndEndRadius: "5px",
+                                    height: "4.5vh",
                                 }}
                             >
-                                <Link to="/">
-                                    <img src={logo[0].imgPath} alt={logo[0].label} />
-                                </Link>
-                            </Grid>
-
-                            <Grid item xs={2} sm={2} md={2} lg={2}>
-                                <Link to="/login">
-                                    <PersonIcon fontSize="large" />
-                                </Link>
-                            </Grid>
-                        </Grid>
-                    </Toolbar>
-                </Container >
-            </AppBar >
-            <Divider
-                sx={{
-                    background: (theme) => theme.palette.secondary.light,
-                    color: (theme) => theme.palette.secondary.light,
-                    height: "0.01rem",
-                    opacity: 0.4,
-                }}
-            />
-        </>
+                                <AccountCircle />
+                            </IconButton>
+                        </Link>
+                    </Box>
+                </Toolbar>
+            </Container>
+        </AppBar>
     );
 };
 

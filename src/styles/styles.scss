@@ -1,21 +1,5 @@
 @import './fonts';
 
-body {
-    margin: 0;
-}
+@import './generalCfgs';
 
-.bold {
-    font-family: 'Bold' !important;
-}
-
-.semiBold {
-    font-family: 'SemiBold' !important;
-}
-
-.regular {
-    font-family: 'Regular' !important;
-}
-
-.fullSize {
-    padding: 0 !important;
-}
+@import './flipperImg';

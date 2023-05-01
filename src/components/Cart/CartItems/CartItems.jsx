@@ -4,6 +4,7 @@ import CircleIcon from '@mui/icons-material/Circle';
 import ItemCount from "../../ItemCount/ItemCount.jsx";
 import { useContext } from "react";
 import { CartContext } from "../../../context/cartContext.jsx";
+import FlipperImg from "../../FlipperImg/FlipperImg.jsx";
 
 // Se crean los estilos para el componente
 
@@ -30,7 +31,7 @@ const gridStyles = {
 const CartItems = () => {
 
     // Se obtienen los datos del contexto
-    const { cart, eliminarDelCarrito } = useContext(CartContext);
+    const { cart, removeFromCart } = useContext(CartContext);
 
     return (
 
@@ -55,7 +56,7 @@ const CartItems = () => {
                                 >
 
                                     <Button
-                                        onClick={() => eliminarDelCarrito(prod.id)}
+                                        onClick={() => removeFromCart(prod.id)}
                                     >
 
                                         <DeleteOutlineIcon fontSize="medium" />
@@ -72,11 +73,7 @@ const CartItems = () => {
                                     sx={centerFlexColumn}
                                 >
 
-                                    <img
-                                        src={prod.pictureUrl}
-                                        alt={prod.name}
-                                        width="100%"
-                                    />
+                                    <FlipperImg item={prod} size={150} />
 
                                 </Grid>
 
@@ -196,6 +193,7 @@ const CartItems = () => {
                 ))
 
             }
+
 
         </>
 

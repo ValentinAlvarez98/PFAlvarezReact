@@ -3,7 +3,7 @@ import NavBar1 from "./components/NavBars/NavBar1.jsx";
 import NavBar2 from "./components/NavBars/NavBar2.jsx";
 import { HeaderWithTheme } from "./components/Header/Header";
 import { BrowserRouter } from "react-router-dom";
-import { CartProvider } from "./context/cartContext.jsx";
+import CartContextProvider from "./context/cartContext.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import { Divider } from "@mui/material";
 import LoginProvider from "./context/loginContext.jsx";
@@ -13,7 +13,7 @@ function App() {
   return (
     <ThemeProviderCustom>
       <LoginProvider>
-        <CartProvider>
+        <CartContextProvider>
           <BrowserRouter>
             <HeaderWithTheme />
             <NavBar1 />
@@ -22,7 +22,7 @@ function App() {
             <Divider sx={{ mt: 5 }} />
             <Footer />
           </BrowserRouter>
-        </CartProvider>
+        </CartContextProvider>
       </LoginProvider>
     </ThemeProviderCustom>
   );

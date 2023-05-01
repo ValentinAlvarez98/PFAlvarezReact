@@ -9,7 +9,7 @@ const buttonStyle = {
 };
 
 // Se crea el componente CartNavbar que contiene la barra de navegación del carrito
-const CartNavbar = () => {
+const CartNavbar = ({ onShowUserData, onHiddenUserData, onShowPaymentData, onHiddenPaymentData }) => {
     return (
 
         // Se crea un contenedor que ocupa todo el ancho de la pantalla
@@ -38,6 +38,10 @@ const CartNavbar = () => {
 
                     <mui.Button
                         sx={buttonStyle}
+                        onClick={() => {
+                            onHiddenUserData();
+                            onHiddenPaymentData();
+                        }}
                     >
 
                         <CircleIcon
@@ -62,12 +66,16 @@ const CartNavbar = () => {
                         orientation="horizontal"
                         sx={{
                             display: { xs: "none", md: "block" },
-                            width: "20vw",
+                            width: "25vw",
                         }}
                     />
 
                     <mui.Button
                         sx={buttonStyle}
+                        onClick={() => {
+                            onShowUserData();
+                            onHiddenPaymentData();
+                        }}
                     >
 
                         <CircleIcon
@@ -92,45 +100,16 @@ const CartNavbar = () => {
                         orientation="horizontal"
                         sx={{
                             display: { xs: "none", md: "block" },
-                            width: "20vw",
+                            width: "25vw",
                         }}
                     />
 
                     <mui.Button
                         sx={buttonStyle}
-                    >
-
-                        <CircleIcon
-                            sx={{
-                                color: (theme) => theme.palette.primary.main,
-                                fontSize: "1.55rem",
-                                marginRight: "0.5rem",
-                            }}
-                        />
-
-                        <mui.Typography className="regular" variant="body2"
-                            sx={{
-                                color: (theme) => theme.palette.secondary.light
-                            }}
-                        >
-                            Envio
-                        </mui.Typography>
-
-                    </mui.Button>
-
-                    <mui.Divider
-                        orientation="horizontal"
-                        sx={{
-                            display: {
-                                xs: "none", md: "block",
-                                width: "20vw",
-                            }
+                        onClick={() => {
+                            onShowPaymentData();
+                            onHiddenUserData();
                         }}
-
-                    />
-
-                    <mui.Button
-                        sx={buttonStyle}
                     >
 
                         <CircleIcon

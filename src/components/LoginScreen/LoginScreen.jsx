@@ -1,178 +1,129 @@
 import { useState, useContext } from 'react';
 import { TextField, Button, Typography, Container, Box } from '@mui/material';
-import { db } from '../../firebase/firebase';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { LoginContext } from '../../context/loginContext';
-
-const auth = getAuth();
+import { Flipper, Flipped } from 'react-flip-toolkit';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isRegistering, setIsRegistering] = useState(false);
 
-    const [isLogged, setIsLogged] = useState(false);
-    const [isRegister, setIsRegister] = useState(false);
-
-    const { handleLogin } = useContext(LoginContext);
+    const { login } = useContext(LoginContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        try {
-            if (isRegistering) {
-                await createUserWithEmailAndPassword(auth, email, password);
-                setIsRegister(true);
-            } else {
-                await signInWithEmailAndPassword(auth, email, password);
-                handleLogin();
-                setIsLogged(true);
-            }
-        } catch (error) {
-            console.log(error);
-        }
+        await login(email, password, isRegistering);
     };
 
+    const handleToggleRegister = () => {
+        setIsRegistering(!isRegistering);
+    };
 
     return (
         <Container
-            maxWidth="sm"
+            maxWidth="md"
             sx={{
-                marginTop: '4rem',
-                boxShadow: '5px 6px 10px 0px #8b9198',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                minHeight: '80vh',
             }}
         >
-            <form onSubmit={handleSubmit}
-                style={{ paddingTop: '2rem' }}
-            >
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }}
-                >
-                    <TextField
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        id="email"
-                        type={'email'}
-                        placeholder="E-MAIL"
-                    />
-                </Box>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        mt: 2,
-                    }}
-                >
-                    <TextField
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        id="password"
-                        type={'password'}
-                        placeholder="PASSWORD"
-                    />
-                </Box>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        mt: 2,
-                    }}
-                >
-                    <Button
-                        type={'submit'}
-                        variant="contained"
-                        onClick={() => setIsRegistering(!isRegistering)}
+            <Flipper flipKey={isRegistering} stagger={10}>
+                <Flipped flipId="box">
+                    <Box
                         sx={{
-                            borderRadius: "0",
-                            background: (theme) => theme.palette.primary.main,
-                            "&:hover": {
-                                background: (theme) => theme.palette.primary.dark,
-                            },
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            borderRadius: '2px',
+                            padding: '2.5rem',
+                            boxShadow: "5px 6px 10px 0px #8b9198",
                         }}
                     >
                         <Typography
-                            className="regular"
+                            variant="body2"
+                            className="semiBold"
                             sx={{
-                                color: (theme) => theme.palette.primary.contrastText,
-                                fontSize: "0.8rem",
+                                color: (theme) => theme.palette.primary.dark,
+                                fontSize: '2.2rem',
+                                mb: '1.5rem',
+                                mt: '1.5rem',
                             }}
                         >
-                            {isRegistering ? "Iniciar sesión" : "Registrarse"}
+                            {isRegistering ? "Regístrate" : "Inicia sesión"}
                         </Typography>
-                    </Button>
+                        <form onSubmit={handleSubmit}>
+                            <TextField
+                                label="Email"
+                                variant="outlined"
+                                type="email"
+                                fullWidth
+                                sx={{ mb: '1.5rem' }}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <TextField
+                                value={password}
+                                className='regular'
+                                onChange={(e) => setPassword(e.target.value)}
+                                id="password"
+                                type={'password'}
+                                label="Contraseña"
+                                variant="outlined"
+                                fullWidth
+                                margin="normal"
+                                required
+                            />
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                className='semiBold'
+                                fullWidth
+                                sx={{
+                                    backgroundColor: (theme) => theme.palette.primary.main,
+                                    color: '#fff',
+                                    mt: '2rem',
+                                    mb: '1rem',
+                                    pt: '0.5rem',
+                                    '&:hover': {
+                                        backgroundColor: (theme) => theme.palette.secondary.main,
+                                    }
+                                }}
+                            >
+                                {isRegistering ? "Registrarse" : "Iniciar sesión"}
+                            </Button>
+                        </form>
+                        <Typography
+                            variant="body1"
+                            className='regular'
+                            sx={{
+                                color: (theme) => theme.palette.secondary.light,
+                            }}
+                        >
+                            {isRegistering ? "¿Ya tienes una cuenta?" : "¿No tienes una cuenta?"}{" "}
+                            <Typography
+                                variant="body1"
+                                component="span"
+                                className='regular'
+                                sx={{
+                                    color: (theme) => theme.palette.info.main,
+                                    fontWeight: 'bold',
+                                    cursor: 'pointer',
+                                }}
+                                onClick={handleToggleRegister}
+                            >
+                                {isRegistering ? "Inicia sesión" : "Regístrate"}
+                            </Typography>
+                        </Typography>
 
-                </Box>
-            </form>
-            {isLogged ?
-                <Box sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    mt: 2,
-                }}>
-                    <Typography
-                        className="regular"
-                        sx={{
-                            fontSize: "0.8rem",
-                            mb: 2,
-                        }}
-                    >
-                        {isLogged ? "¡Bienvenido!" : ""}
-                    </Typography>
-                </Box>
-                : null}
-
-            {isRegister ?
-                <Box sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    mt: 2,
-                }}>
-                    <Typography
-                        className="regular"
-                        sx={{
-                            fontSize: "0.8rem",
-                            mb: 2,
-                        }}
-                    >
-                        {isRegister ? "¡Usuario registrado correctamente!" : ""}
-                    </Typography>
-                </Box>
-                : null}
-
-
-            <Box sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
-                mt: 2,
-            }}>
-                <Typography
-                    className="regular"
-                    onClick={() => setIsRegistering(!isRegistering)}
-                    sx={{
-                        fontSize: "0.8rem",
-                        mb: 2,
-                    }}
-                >
-                    {isRegistering ? "¿No tienes cuenta?" : "¿Ya tienes cuenta?"}
-                </Typography>
-            </Box>
+                    </Box>
+                </Flipped>
+            </Flipper>
         </Container>
     );
-}
+};
 
 export default LoginScreen;

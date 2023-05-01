@@ -2,13 +2,12 @@ import { useState, useContext } from "react";
 import { Grid, Card, CardContent, Button, Typography, Box, Container, Breadcrumbs } from "@mui/material";
 import { useNavigate, Link } from 'react-router-dom';
 import { CartContext } from "../../../context/cartContext.jsx";
+import FlipperImg from "../../FlipperImg/FlipperImg.jsx";
 
 
 const ItemDetail = ({ item }) => {
 
-    const { agregarAlCarrito, isInCart } = useContext(CartContext);
-
-    const [stock, setStock] = useState(item.stock);
+    const { addToCart } = useContext(CartContext);
 
     const [show, setShow] = useState(false);
 
@@ -26,18 +25,7 @@ const ItemDetail = ({ item }) => {
 
 
     const handleAgreagar = () => {
-        if (isInCart(item.id)) {
-            alert("Ya has agregado este producto al carrito");
-        } else if (item.stock > 0) {
-            const newItem = {
-                ...item,
-                quantity: 1,
-            };
-            setStock(stock - 1);
-            agregarAlCarrito(newItem);
-        } else {
-            alert("No hay stock disponible");
-        }
+        addToCart(item);
     };
 
 
@@ -53,7 +41,7 @@ const ItemDetail = ({ item }) => {
                     alignItems: 'center',
                 }}>
 
-                    <img src={item.pictureUrl} alt={item.name} />
+                    <FlipperImg item={item} size={600} />
 
                 </Grid>
 
@@ -116,7 +104,7 @@ const ItemDetail = ({ item }) => {
                                     fontSize: '1.2rem',
                                     color: (theme) => theme.palette.secondary.main,
                                 }}>
-                                    Stock: {stock}
+                                    Stock: {item.stock}
                                 </Typography>
                             </Box>
                         </CardContent>
@@ -143,40 +131,15 @@ const ItemDetail = ({ item }) => {
                         }
 
                         <CardContent sx={{ mt: 1, }}>
-                            {
-                                isInCart(item.id)
-                                    ? <Box sx={{
-                                        display: 'flex',
-                                        justifyContent: 'space-between',
-                                        alignItems: 'center',
-                                    }}>
 
-                                        {
-                                            show === false ?
-                                                <Button onClick={handleShow} className='regular' variant="contained" sx={{
-                                                    backgroundColor: (theme) => theme.palette.primary.main,
-                                                    color: (theme) => theme.palette.primary.contrastText,
-                                                    width: '200px',
-                                                    height: "30px",
-                                                    borderRadius: '0.1rem',
-                                                    fontWeight: 'regular',
-                                                    fontSize: '0.9rem',
-                                                }}>
-                                                    Ver Descripción
-                                                </Button>
-                                                :
-                                                <Button onClick={handleShow} className='regular' variant="contained" sx={{
-                                                    backgroundColor: (theme) => theme.palette.primary.main,
-                                                    color: (theme) => theme.palette.primary.contrastText,
-                                                    width: '200px',
-                                                    height: "30px",
-                                                    borderRadius: '0.1rem',
-                                                    fontWeight: 'regular',
-                                                    fontSize: '0.9rem',
-                                                }}>
-                                                    Ocultar Descripción
-                                                </Button>
-                                        }
+                            <Box sx={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                            }}>
+
+                                {
+                                    show === false ?
                                         <Button onClick={handleShow} className='regular' variant="contained" sx={{
                                             backgroundColor: (theme) => theme.palette.primary.main,
                                             color: (theme) => theme.palette.primary.contrastText,
@@ -186,44 +149,10 @@ const ItemDetail = ({ item }) => {
                                             fontWeight: 'regular',
                                             fontSize: '0.9rem',
                                         }}>
-                                            <Link to='/cart' style={{ textDecoration: 'none', color: 'white' }}>
-                                                Ir Al Carrito
-                                            </Link>
+                                            Ver Descripción
                                         </Button>
-                                    </Box>
-                                    : <Box sx={{
-                                        display: 'flex',
-                                        justifyContent: 'space-between',
-                                        alignItems: 'center',
-                                    }}>
-
-                                        {
-                                            show === false ?
-                                                <Button onClick={handleShow} className='regular' variant="contained" sx={{
-                                                    backgroundColor: (theme) => theme.palette.primary.main,
-                                                    color: (theme) => theme.palette.primary.contrastText,
-                                                    width: '200px',
-                                                    height: "30px",
-                                                    borderRadius: '0.1rem',
-                                                    fontWeight: 'regular',
-                                                    fontSize: '0.9rem',
-                                                }}>
-                                                    Ver Descripción
-                                                </Button>
-                                                :
-                                                <Button onClick={handleShow} className='regular' variant="contained" sx={{
-                                                    backgroundColor: (theme) => theme.palette.primary.main,
-                                                    color: (theme) => theme.palette.primary.contrastText,
-                                                    width: '200px',
-                                                    height: "30px",
-                                                    borderRadius: '0.1rem',
-                                                    fontWeight: 'regular',
-                                                    fontSize: '0.9rem',
-                                                }}>
-                                                    Ocultar Descripción
-                                                </Button>
-                                        }
-                                        <Button onClick={handleAgreagar} className='regular' variant="contained" sx={{
+                                        :
+                                        <Button onClick={handleShow} className='regular' variant="contained" sx={{
                                             backgroundColor: (theme) => theme.palette.primary.main,
                                             color: (theme) => theme.palette.primary.contrastText,
                                             width: '200px',
@@ -232,10 +161,22 @@ const ItemDetail = ({ item }) => {
                                             fontWeight: 'regular',
                                             fontSize: '0.9rem',
                                         }}>
-                                            Agregar al carrito
+                                            Ocultar Descripción
                                         </Button>
-                                    </Box>
-                            }
+                                }
+                                <Button onClick={handleAgreagar} className='regular' variant="contained" sx={{
+                                    backgroundColor: (theme) => theme.palette.primary.main,
+                                    color: (theme) => theme.palette.primary.contrastText,
+                                    width: '200px',
+                                    height: "30px",
+                                    borderRadius: '0.1rem',
+                                    fontWeight: 'regular',
+                                    fontSize: '0.9rem',
+                                }}>
+                                    Agregar al carrito
+                                </Button>
+                            </Box>
+
                         </CardContent>
                     </Card>
                 </Grid>
